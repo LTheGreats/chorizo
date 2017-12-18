@@ -1,0 +1,668 @@
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.18.1">
+    <title>ChorizoCore.Repositories.API – Chorizo vdev</title>
+    <link rel="stylesheet" href="dist/app-c922dbe7ef.css" />
+    
+    <script src="dist/sidebar_items-a6ccbf6c6b.js"></script>
+    
+    
+    
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+
+    <div class="main">
+<button class="sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<section class="sidebar">
+
+  
+  <a href="http://johnwilger.com/chorizo_core" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        Chorizo
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        vdev
+      </h2>
+    </div>
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">Chorizo vdev</small>
+        ChorizoCore.Repositories.API <small>behaviour</small>
+        
+          <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+        
+      </h1>
+
+      
+        <section id="moduledoc">
+          <p>Behavior module for the Repositories API</p>
+
+        </section>
+      
+
+      
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:error/0">error()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Returned by functions that encounter an error during operation, e.g. if an
+attempt is made to insert an invalid record</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:found/1">found(type)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Returned by functions that successfully find a single result</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:found_multi/1">found_multi(type)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Returned by functions that successfully find multiple results</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:multi_result/1">multi_result(type)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Return value for functions that are expected to return many results</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:not_found/1">not_found(type)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Returned by functions that execute successfully but do not find any records</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:record/0">record()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>The type of record stored by the repository</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:search_options/0">search_options()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Search options used by the repository to filter results</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:single_result/1">single_result(type)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Return value for functions that are expected to return at most 1 result</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
+
+          
+  <div class="summary-callbacks summary">
+    <h2>
+      <a href="#callbacks">Callbacks</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:count/0">count()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Returns the total number of items in the repository</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:count/1">count(search_options)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Returns the number of items in the repository matching <code class="inline">search_options</code></p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:first/0">first()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Finds the first item in the repository</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:first/1">first(search_options)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Finds the first item in the repository that matches <code class="inline">search_options</code></p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:insert/1">insert(record)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Inserts <code class="inline">record</code> into the repository</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+        </section>
+      
+
+      
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Types
+          </h1>
+          <div class="types-list">
+            <div class="detail" id="t:error/0">
+  
+  
+  <div class="detail-header">
+    <a href="#t:error/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">error()</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L30" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>error() :: {:error, term()}</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Returned by functions that encounter an error during operation, e.g. if an
+attempt is made to insert an invalid record.</p>
+
+  </section>
+</div>
+<div class="detail" id="t:found/1">
+  
+  
+  <div class="detail-header">
+    <a href="#t:found/1" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">found(type)</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L14" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>found(type) :: {:ok, type}</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Returned by functions that successfully find a single result</p>
+
+  </section>
+</div>
+<div class="detail" id="t:found_multi/1">
+  
+  
+  <div class="detail-header">
+    <a href="#t:found_multi/1" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">found_multi(type)</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L19" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>found_multi(type) :: {:ok, [type, ...]}</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Returned by functions that successfully find multiple results</p>
+
+  </section>
+</div>
+<div class="detail" id="t:multi_result/1">
+  
+  
+  <div class="detail-header">
+    <a href="#t:multi_result/1" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">multi_result(type)</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L40" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>multi_result(type) :: <a href="#t:found_multi/1">found_multi</a>(type) | <a href="#t:not_found/1">not_found</a>([]) | <a href="#t:error/0">error</a>()</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Return value for functions that are expected to return many results</p>
+
+  </section>
+</div>
+<div class="detail" id="t:not_found/1">
+  
+  
+  <div class="detail-header">
+    <a href="#t:not_found/1" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">not_found(type)</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L24" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>not_found(type) :: {:not_found, type}</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Returned by functions that execute successfully but do not find any records</p>
+
+  </section>
+</div>
+<div class="detail" id="t:record/0">
+  
+  
+  <div class="detail-header">
+    <a href="#t:record/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">record()</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L9" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>record() :: struct()</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>The type of record stored by the repository</p>
+
+  </section>
+</div>
+<div class="detail" id="t:search_options/0">
+  
+  
+  <div class="detail-header">
+    <a href="#t:search_options/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">search_options()</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L45" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>search_options() :: keyword()</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Search options used by the repository to filter results</p>
+
+  </section>
+</div>
+<div class="detail" id="t:single_result/1">
+  
+  
+  <div class="detail-header">
+    <a href="#t:single_result/1" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">single_result(type)</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L35" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>single_result(type) :: <a href="#t:found/1">found</a>(type) | <a href="#t:not_found/1">not_found</a>(nil) | <a href="#t:error/0">error</a>()</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Return value for functions that are expected to return at most 1 result</p>
+
+  </section>
+</div>
+
+          </div>
+        </section>
+      
+
+      
+
+      
+        <section id="callbacks" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#callbacks">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Callbacks
+          </h1>
+          <div class="detail" id="c:count/0">
+  
+  
+  <div class="detail-header">
+    <a href="#c:count/0" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <span class="signature">count()</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L72" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>count() :: <a href="#t:single_result/1">single_result</a>(integer())</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Returns the total number of items in the repository</p>
+
+  </section>
+</div>
+<div class="detail" id="c:count/1">
+  
+  
+  <div class="detail-header">
+    <a href="#c:count/1" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <span class="signature">count(search_options)</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L67" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>count(<a href="#t:search_options/0">search_options</a>()) :: <a href="#t:single_result/1">single_result</a>(integer())</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Returns the number of items in the repository matching <code class="inline">search_options</code></p>
+
+  </section>
+</div>
+<div class="detail" id="c:first/0">
+  
+  
+  <div class="detail-header">
+    <a href="#c:first/0" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <span class="signature">first()</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L62" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+      <span class="note">(optional)</span>
+    
+    
+      <div class="specs">
+        
+          <pre>first() :: <a href="#t:single_result/1">single_result</a>(<a href="#t:record/0">record</a>())</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Finds the first item in the repository</p>
+
+  </section>
+</div>
+<div class="detail" id="c:first/1">
+  
+  
+  <div class="detail-header">
+    <a href="#c:first/1" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <span class="signature">first(search_options)</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L57" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>first(<a href="#t:search_options/0">search_options</a>()) :: <a href="#t:single_result/1">single_result</a>(<a href="#t:record/0">record</a>())</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Finds the first item in the repository that matches <code class="inline">search_options</code></p>
+
+  </section>
+</div>
+<div class="detail" id="c:insert/1">
+  
+  
+  <div class="detail-header">
+    <a href="#c:insert/1" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <span class="signature">insert(record)</span>
+    
+      <a href="https://github.com/jwilger/chorizo_core/blob/master/apps/chorizo_core/lib/chorizo_core/repositories/api.ex#L52" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>insert(<a href="#t:record/0">record</a>()) :: <a href="#t:single_result/1">single_result</a>(<a href="#t:record/0">record</a>())</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Inserts <code class="inline">record</code> into the repository</p>
+
+  </section>
+</div>
+
+        </section>
+      
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-778c9ef903.js"></script>
+  
+  
+  
+  
+  </body>
+</html>
+
