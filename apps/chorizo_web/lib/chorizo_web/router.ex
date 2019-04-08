@@ -21,6 +21,12 @@ defmodule ChorizoWeb.Router do
     get "/app", PageController, :app
   end
 
+  scope "/api", ChorizoWeb do
+    pipe_through :api
+
+    post "/authenticate", ApiController, :authenticate
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", ChorizoWeb do
   #   pipe_through :api
